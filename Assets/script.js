@@ -14,10 +14,13 @@ $(document).ready(function() {
     var blockHour = parseInt($(this).attr("id").split("-")[1]);
     if (blockHour < currentHour) {
       $(this).addClass("past");
-    } else if (blockHour === currentHour) {
+      $(this).removeClass("present future");
+    } else if (blockHour == currentHour) {
       $(this).addClass("present");
+      $(this).removeClass("future past");
     } else {
       $(this).addClass("future");
+      $(this).removeClass("past present");
     }
   });
   // TODO: Add a listener for click events on the save button. This code should
